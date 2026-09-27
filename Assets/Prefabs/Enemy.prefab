@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6978108854187985135}
   - component: {fileID: 5459987507657345808}
   - component: {fileID: 7366475699035448262}
+  - component: {fileID: 4581563555717361010}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -195,3 +196,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyPatrol
   speed: 2
   patrolDistance: 2.8
+--- !u!95 &4581563555717361010
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221631025741446549}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16b680b3615ff6a45b6af3337dc239ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

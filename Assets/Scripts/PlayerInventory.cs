@@ -7,11 +7,12 @@ public class PlayerInventory : MonoBehaviour
     public int Coins { get; private set; }
 
     public event Action<int> CoinsChanged;
+    public event Action KeyPickedUp;
 
     public void PickUpKey()
     {
         HasKey = true;
-        Debug.Log("Llave obtenida");
+        KeyPickedUp?.Invoke();
     }
 
     public void AddCoin()

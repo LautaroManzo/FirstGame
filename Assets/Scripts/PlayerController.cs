@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviour
     private InputAction moveAction;
     private InputAction jumpAction;
     private bool isGrounded;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,6 +35,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+
+        animator.SetFloat("Speed", isGrounded ? Mathf.Abs(rb.linearVelocity.x) : 0f);
     }
 
     private void FixedUpdate()

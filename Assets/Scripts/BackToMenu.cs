@@ -6,6 +6,11 @@ public class BackToMenu : MonoBehaviour
 {
     private const int MenuSceneIndex = 0;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         var keyboard = Keyboard.current;

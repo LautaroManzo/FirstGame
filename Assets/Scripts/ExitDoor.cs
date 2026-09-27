@@ -31,7 +31,9 @@ public class ExitDoor : MonoBehaviour
         }
         else
         {
-            MessageUI.Instance.Show("¡Ganaste!", 999f);
+            MessageUI.Instance.Show("¡Ganaste!", 3f);
+            yield return new WaitForSeconds(3f);
+            SceneManager.LoadScene(0);
         }
     }
 }

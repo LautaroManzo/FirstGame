@@ -13,18 +13,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
 
+    [Header("Gravedad")]
+    [SerializeField] private float fallGravityMultiplier = 2f;
+    [SerializeField] private float lowJumpGravityMultiplier = 2f;
+
     private Rigidbody2D rb;
+    private Animator animator;
     private InputAction moveAction;
     private InputAction jumpAction;
     private bool isGrounded;
-    private Animator animator;
+    private float baseGravityScale;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         moveAction = InputSystem.actions.FindAction("Move");
         jumpAction = InputSystem.actions.FindAction("Jump");
-        animator = GetComponent<Animator>();
+        baseGravityScale = rb.gravityScale;
     }
 
     private void Update()
@@ -34,6 +40,19 @@ public class PlayerController : MonoBehaviour
         if (jumpAction.WasPressedThisFrame() && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
+
+        if (rb.linearVelocity.y < 0)
+        {
+            rb.gravityScale = baseGravityScale * fallGravityMultiplier;
+        }
+        else if (rb.linearVelocity.y > 0 && !jumpAction.IsPressed())
+        {
+            rb.gravityScale = baseGravityScale * lowJumpGravityMultiplier;
+        }
+        else
+        {
+            rb.gravityScale = baseGravityScale;
         }
 
         animator.SetFloat("Speed", isGrounded ? Mathf.Abs(rb.linearVelocity.x) : 0f);

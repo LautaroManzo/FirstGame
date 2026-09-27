@@ -11,4 +11,4 @@ Unity 6.6 (URP 2D) · C# · Cinemachine · Input System
 ## Créditos
 
 - Sonidos: [Kenney](https://kenney.nl) (CC0)
-- Música: [autor] en [OpenGameArt](https://opengameart.org)
+- Música: [OpenGameArt](https://opengameart.org) (CC0)

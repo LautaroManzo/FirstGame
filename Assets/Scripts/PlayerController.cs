@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float fallGravityMultiplier = 2f;
     [SerializeField] private float lowJumpGravityMultiplier = 2f;
 
+    [Header("Sonido")]
+    [SerializeField] private AudioClip jumpSound;
+
     private Rigidbody2D rb;
     private Animator animator;
     private InputAction moveAction;
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
         if (jumpAction.WasPressedThisFrame() && isGrounded)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            SoundManager.Instance?.PlaySfx(jumpSound);
         }
 
         if (rb.linearVelocity.y < 0)

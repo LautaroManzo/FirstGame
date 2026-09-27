@@ -152,3 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be374a5cbf779aa4dab4a01652d99f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Key
+  pickupSound: {fileID: 8300000, guid: f8ddbf9c06fbe524bb8830e4aeb90ea7, type: 3}
